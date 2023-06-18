@@ -1,6 +1,11 @@
 {
-    "name": "Your Dev Container",
-    "dockerFile": "Dockerfile",
-    "runArgs": ["-e", "DISPLAY=:0", "-v", "/tmp/.X11-unix:/tmp/.X11-unix:ro"],
-    "postCreateCommand": "xeyes"
+    "image": "xeyes",
+    "runArgs": [
+        "--rm",
+        "--net=host",
+        "-e", "DISPLAY=localhost:10.0",
+        "-v", "/tmp/.X11-unix:/tmp/.X11-unix",
+        "-v", "${env:HOME}/.Xauthority:/root/.Xauthority"
+    ],
+    "postCreateCommand": "bash"
 }
