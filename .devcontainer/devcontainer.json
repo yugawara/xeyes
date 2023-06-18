@@ -5,7 +5,7 @@
         "--rm",
         "-e", "DISPLAY=localhost:10.0",
         "-v", "/tmp/.X11-unix:/tmp/.X11-unix",
-        "-v", "${localEnv:HOME}/.Xauthority:/root/.Xauthority",
+        "-v", "${env:HOME}/.Xauthority:/root/.Xauthority:ro",
         "--net=host"
     ]
 }
