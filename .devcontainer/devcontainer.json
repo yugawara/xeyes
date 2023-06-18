@@ -1,0 +1,16 @@
+{
+    "name": "Xeyes Dev Container",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "app",
+    "workspaceFolder": "/workspace",
+    // "remoteUser": "pwuser",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-playwright.playwright",
+                "eamodio.gitlens"
+            ]
+        }
+    },
+    "postCreateCommand": "npm ci"
+}
