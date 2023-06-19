@@ -1,4 +1,4 @@
-# Xeyes Dev Container
+# Xeyes Dev Container for VSCode
 
 Welcome to the Xeyes Dev Container project. This project uses Docker and VSCode's Remote Containers extension to provide a consistent development environment for the Xeyes (X Window System eyeballs) app, irrespective of the host operating system.
 
@@ -28,17 +28,35 @@ The project consists of the following files:
    git clone <repo-url>
    ```
 
-   Navigate into the project directory.
+2. Navigate into the project directory.
 
    ```bash
     cd xeyes
    ```
 
-   Open the repository folder in VSCode.
+3. Open the repository folder in VSCode.
 
    ```bash
    code .
    ```
+4. During the "Reopen in Container" process, you can click on the "Show Log" button that appears. This keeps the log in the terminal. To open an interactive terminal, click on either the Plus button or the Split Screen button.
+
+## Troubleshooting
+
+If you encounter any problems, search for the string "X11" in the log file or check the bottom of the log file. Ensure that there has been no problem in assigning the DISPLAY variable. The log information can be quite helpful in diagnosing and resolving any issues you might face.
+
+## Testing
+
+Once inside the Docker container (using VSCode terminal and the Remote - Containers extension), you can test if the setup works correctly by running the `xeyes` command:
+
+```bash
+root@fafca28629d5:/workspaces/xeyes# xeyes
+Warning: locale not supported by C library, locale unchanged
+
+root@fafca28629d5:/workspaces/xeyes#
+```
+
+If everything is set up correctly, you should see the Xeyes GUI application.
 
 ## Note
 
