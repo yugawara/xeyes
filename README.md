@@ -1,6 +1,8 @@
-# Xeyes Dev Container for VSCode
+# Xeyes Dev Container
 
-Welcome to the Xeyes Dev Container project. This project uses Docker and VSCode's Remote Containers extension to provide a consistent development environment for the Xeyes (X Window System eyeballs) app, irrespective of the host operating system.
+Our primary goal is to gather genuine experiences from users. We want to make sure that VSCode Devcontainers do a stellar job for our IT worker cooperatives. To accomplish this, we're using Xeyes as a fun, yet solid first step to test out the waters. Once we've got this down, we're all set to bring in more serious players, like Microsoft Playwright and other interactive testing tools, to work side by side with VSCode. This creates a stage for smooth development and testing, accessible across multiple operating systems. It's our small step towards making tech collaboration more inclusive and efficient.
+
+This README.md was brought to you by ChatGPT with some excellent human guidance. We hope you found it useful for your journey into cross-platform development with VSCode and Docker. Happy coding!
 
 ## Pre-requisites
 
