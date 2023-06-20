@@ -65,3 +65,48 @@ The `runArgs` in the `devcontainer.json` are currently commented out. Depending 
 
 For Linux and Windows 10, no extra arguments seem to be required as long as the Docker client, Docker host, and X11 software are all running on the same machine. This simplifies the setup and allows you to start developing quickly.
 
+## Working with ssh-agent on Windows
+
+This document provides a guide on how to check the status of the ssh-agent service, set it to start automatically, and start the service manually on a Windows system.
+
+## Checking the Status of ssh-agent for Windows Host
+
+You can check the status of the ssh-agent service by running the following command in PowerShell:
+
+```powershell
+Get-Service -Name ssh-agent
+```
+
+The output will show the status of the ssh-agent service. If it's running, you'll see the status as `Running`.
+
+## Setting ssh-agent to Start Automatically
+
+To set the ssh-agent service to start automatically during system boot, run the following command in PowerShell:
+
+```powershell
+Set-Service -Name ssh-agent -StartupType 'Automatic'
+```
+
+You can confirm that the change was successful by checking the `StartupType` of the service. Run this command:
+
+```powershell
+Get-WmiObject -Query "Select * From Win32_Service Where Name='ssh-agent'"
+```
+
+In the output, you should see `StartMode : Auto` which confirms that the ssh-agent service is set to start automatically.
+
+## Starting the ssh-agent Service
+
+If the ssh-agent service is not currently running, you can start it by running the following command in PowerShell:
+
+```powershell
+Start-Service ssh-agent
+```
+
+You can confirm that the service is running by checking the status of the service. Run this command:
+
+```powershell
+Get-Service ssh-agent
+```
+
+In the output, you should see `Status : Running` which confirms that the ssh-agent service is currently running.
