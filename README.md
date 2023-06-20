@@ -12,6 +12,7 @@ Before you begin, ensure that you have the following installed on your machine:
 2. Docker - Install it from [here](https://docs.docker.com/get-docker/). Docker is required to build and run the containerized environment. For Windows users, Docker will run within the WSL2 environment.
 3. Remote - Containers extension for VSCode - Install it from [here](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers). This extension lets you use a Docker container as a full-featured development environment.
 4. **For Windows users:** Install the latest version of [WSL2](https://docs.microsoft.com/en-us/windows/wsl/install-win10) and make sure that Linux GUI applications can run natively. You can follow the latest practices on [Microsoft's official site](https://www.microsoft.com) for running Linux GUI apps on WSL2. It's recommended to ensure that Linux GUI apps run on WSL2 before you begin with this project.
+5. **For Macintosh Users:** Ensure `XQuartz` is installed.
 
 
 ## File Structure
