@@ -110,3 +110,24 @@ Get-Service ssh-agent
 ```
 
 In the output, you should see `Status : Running` which confirms that the ssh-agent service is currently running.
+
+
+# Other Tips
+
+During the process of reopening your project in a Dev Container, you can interact with the setup logs to aid in any potential troubleshooting.
+
+## Viewing Setup Logs
+
+1. Click the "Reopen in Container" button to start the Dev Container setup process.
+
+2. As soon as the setup process starts, a "Show Log" button appears. Click this button to keep the log in the terminal.
+
+If you forget to press the "Show Log" button during the setup process, you can still view the logs after the Dev Container session has started. Use the Command Palette to select "Remote-Containers: Show Log". Please note that this will only show logs starting from the moment you opened the logs panel, not any logs from before that point.
+
+## Opening an Interactive Terminal
+
+If you wish to interact with the terminal while the log is being displayed:
+
+1. Click the "Plus" button to open a new terminal tab. This allows you to run commands while still keeping the log visible.
+
+2. Alternatively, you can click the "Split Terminal" button to open a new terminal in a split view. This allows you to view the log and interact with the terminal side-by-side.
