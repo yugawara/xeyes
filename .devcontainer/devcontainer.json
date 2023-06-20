@@ -2,10 +2,5 @@
     "name": "Xeyes Dev Container",
     "dockerFile": "Dockerfile",
     "runArgs": [
-        // "--rm",
-        // "-e", "DISPLAY=:0"
-        // "-v", "/tmp/.X11-unix:/tmp/.X11-unix"
-        // "-v", "${env:HOME}/.Xauthority:/root/.Xauthority:ro",
-        // "--net=host"
     ]
 }

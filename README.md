@@ -69,6 +69,20 @@ For Linux and Windows 10, no extra arguments seem to be required as long as the 
 
 This document provides a guide on how to check the status of the ssh-agent service, set it to start automatically, and start the service manually on a Windows system.
 
+## Before doing anything, use the latest OpenSSH
+(excerpt from https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)
+> Install using WinGet
+> 
+> Starting with GitHub Release 8.9.1.0, OpenSSH Beta releases are available through WinGet. With WinGet installed on the machine, use the following commands:
+> 
+>     Search:
+>     winget search "openssh beta"
+>     Install:
+>     winget install "openssh beta"
+>     Uninstall:
+>     winget uninstall "openssh beta"
+
+
 ## Checking the Status of ssh-agent for Windows Host
 
 You can check the status of the ssh-agent service by running the following command in PowerShell:
