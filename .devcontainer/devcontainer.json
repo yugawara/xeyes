@@ -1,6 +1,7 @@
 {
     "name": "Xeyes Dev Container",
     "dockerFile": "Dockerfile",
+    "remoteUser": "pwuser",
     "runArgs": [
     ]
 }
