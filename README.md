@@ -65,8 +65,86 @@ If everything is set up correctly, you should see the Xeyes GUI application.
 
 The `runArgs` in the `devcontainer.json` are currently commented out. Depending on your requirements, you might want to adjust these to set up display settings for the Xeyes app.
 
-For Linux and Windows 10, no extra arguments seem to be required as long as the Docker client, Docker host, and X11 software are all running on the same machine. This simplifies the setup and allows you to start developing quickly.
+For Linux and Windows 10/11, no extra arguments seem to be required as long as the Docker client, Docker host, and X11 software are all running on the same machine. This simplifies the setup and allows you to start developing quickly.
+# Special Notes on Connecting to Microsoft Visual Studio DevContainer via SSH
 
+This user manual explains how to connect to a Microsoft Visual Studio DevContainer in an unusual way. The setup involves a user-facing side that is a laptop or a Windows computer, and a home-based Linux server. The Linux server should have a large storage capacity and a stable internet connection.
+
+## Step 1: Setting up the Environment
+- **Passing a variable via SSH:** Ensure that we can pass a specific variable to the server when using SSH. More details about this parameter will be specified later.
+- **Install and Configure X11 Client Software on Windows:** 
+
+   ```
+    # Launch the X11 client software https://sourceforge.net/projects/vcxsrv/
+    # Set the Display Number: Set the value to 10.
+    # Go through the setup: Click 'Next' until you reach the last setup page.
+    # Disable Access Control: Make sure to tick this box to allow the software to accept any connection.
+   ```
+
+## Step 2: Connect to the Remote SSH Server
+
+   ```
+    # Connect to SSH Server: Use the remote connection feature of Visual Studio to connect to your remote SSH server.
+    # Configure .ssh config: Ensure the correct configuration is set in the .ssh config file on the client side.
+    # Access the Project: Once connected, Visual Studio should recognize the location containing your project with the .devcontainer folder.
+    # Open in DevContainer Mode: Accept the suggestion to reopen the project in DevContainer mode.
+   ```
+
+## Step 3: Build and Prepare the Session
+
+   ```
+    # Session Preparation: Accept the 'Show Log' option.
+    # Check the Log: Look for mentions of 'x11' in the log to confirm successful execution.
+   ```
+
+## Step 4: Access the Terminal and Test the X11 Connection
+
+   ```
+    # Access Terminal: Click the '+' button to open a new terminal.
+    # Test X11 Programs: In the terminal, type 'xeyes' or 'xclock'. These programs should display on your Windows client.
+   ```
+
+## Step 5: Continue with Regular Work
+- **Further Work:** Proceed with your other tasks, like playwright testing, as per usual.
+
+## Important Notes
+
+- **SSH Server Configuration:** Ensure the SSHD config file is set to accept the specific environmental variable being passed.
+
+- **Distinguishing Between Local and Remote Development:** Use Microsoft WSL2 x11/Wayland for local development, and VcXsrv for remote development.
+
+## Step 6: Configuring Visual Studio Code
+
+   ```powershell
+    code --folder-uri vscode-remote://ssh-remote+10.11.12.122/home/yasu/co/xeyes
+   ```
+
+## Step 7: Set Environment Variables
+
+   ```powershell
+    $env:DOCKER_COMPOSE_EXTRA1="docker-compose-ssh.yml"
+    $env:DISPLAY="localhost:10.0"
+   ```
+
+## Step 8: SSH Config
+
+   ```
+    cat C:\Users\yasu\.ssh\config
+
+    Host 10.13.12.122
+      HostName 10.13.12.122
+      User yasu
+      ForwardX11 yes
+      ForwardX11Trusted yes
+      SendEnv DOCKER_COMPOSE_EXTRA1
+   ```
+
+## Step 9: Configuring SSH Server
+
+   ```bash
+    cat /etc/ssh/sshd_config
+    AcceptEnv LANG LC_* DOCKER_COMPOSE_EXTRA1
+   ```
 ## Working with ssh-agent on Windows
 
 This document provides a guide on how to check the status of the ssh-agent service, set it to start automatically, and start the service manually on a Windows system.

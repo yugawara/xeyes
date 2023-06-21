@@ -1,14 +1,17 @@
 {
     "name": "Xeyes Dev Container",
-    "dockerComposeFile": "docker-compose.yml",
-    "service": "app",
+    // Note: "local" in localDev on a remote SSH session means the ssh server that hosts our devContainer, not the user-facing machine!
+    // This is why we go out of our way to send DOCKER_COMPOSE_EXTRA1 to the remote machine.
+    // When connecting via SSH, we need additional X11 configuration.
+    "dockerComposeFile": ["docker-compose.yml", "${localEnv:DOCKER_COMPOSE_EXTRA1:docker-compose-noop.yml}"],
+    "service": "e2e",
     "workspaceFolder": "/workspace",
-    // "remoteUser": "pwuser",
     "customizations": {
         "vscode": {
             "extensions": [
                 "ms-playwright.playwright",
-                "eamodio.gitlens"
+                "eamodio.gitlens",
+                "github.copilot"
             ]
         }
     },
