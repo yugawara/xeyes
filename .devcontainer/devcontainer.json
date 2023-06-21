@@ -1,7 +1,8 @@
 {
     "name": "Xeyes Dev Container",
     "dockerFile": "Dockerfile",
-    "remoteUser": "pwuser",
+    // "remoteUser": "pwuser",
     "runArgs": [
+        "--net=host"
     ]
 }
